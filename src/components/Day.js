@@ -4,12 +4,14 @@ import TaskList from './TaskList';
 import { Button, Well } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 
+import toggleOpen from '../decorators/toggleOpen'
+
 class Day extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            isOpen: this.props.defaultOpen,   
-        }
+        // this.state = {
+        //     isOpen: this.props.defaultOpen,   
+        // }
     }
 
     static PropTypes = {
@@ -20,33 +22,28 @@ class Day extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if( nextProps.defaultOpen !== this.props.defaultOpen)  // т.к мы связали props + state
-            this.setState({
-                isOpen: nextProps.defaultOpen
-            })
+        // if( nextProps.defaultOpen !== this.props.defaultOpen)  // т.к мы связали props + state
+        //     this.setState({
+        //         isOpen: nextProps.defaultOpen
+        //     })
     }
 
     render() {    
-        const {dayRecord} = this.props
-        const commentsBody = (this.state.isOpen && dayRecord.comments) ? <Well>{dayRecord.comments}</Well> :  ""
+        const { dayRecord, toggleOpen } = this.props
+        const commentsBody = (this.props.isOpen && dayRecord.comments) ? <Well>{dayRecord.comments}</Well> :  ""
 
         return (
             <div>
                 <h1> ----- {dayRecord.date} -----</h1>
                 <TaskList tasks={dayRecord.tasks}/>
-                <Button onClick={this.toggleOpen}>
-                    {this.state.isOpen ? 'close' : 'open'}
+                <Button onClick={toggleOpen}>
+                    {this.props.isOpen ? 'close' : 'open'}
                 </Button>
                 {commentsBody}
             </div>
         )
     }  
 
-    toggleOpen = () => {
-        this.setState({
-            isOpen : !this.state.isOpen
-        })
-    }   
 }
 
-export default Day;
+export default toggleOpen(Day);
