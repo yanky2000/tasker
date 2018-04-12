@@ -3,9 +3,6 @@ import Task from './Task'
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class TasksList extends Component {
-
-
-
     render() {
         const {tasks} = this.props
         const tasksList = tasks.map(task => 
