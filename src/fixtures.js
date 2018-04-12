@@ -8,7 +8,7 @@ export default [
                     description: 'need init static mockup for site',
                     completed: true,
                     tags: ["react", "job", "learning"],
-                    comments: ["hello i'm a comment"]
+                    comments: ["hello i'm a comment", "Need professional designer?"]
                 }, 
                 {
                     id: 2,
@@ -33,13 +33,13 @@ export default [
             date: '10.01.18',
             tasks: [
                 {
-                    id: 1,
+                    id: 4,
                     title: 'Make logic',
                     description: 'logic for site',
                     completed: false
                 }, 
                 {
-                    id: 2,
+                    id: 5,
                     title: 'Add projects for tasks',
                     description: 'Add tags, make view for projects',
                     completed: false,

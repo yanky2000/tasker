@@ -8,7 +8,7 @@ class CommentList extends Component {
 
     render() {
         const {comments} = this.props
-        const commentBody = comments.length ? comments.map(comment => <Comment comment={comment}></Comment>) : "no comments yet"
+        const commentBody = comments.length ? comments.map((comment, index) => <Comment key={index} comment={comment}></Comment>) : "no comments yet"
 
         return (
             <ul>
