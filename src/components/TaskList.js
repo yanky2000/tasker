@@ -19,9 +19,8 @@ class TasksList extends Component {
             <ListGroupItem key={task.title}>
                 <Task
                     task={task}
-                    openTaskId={openTaskId}
+                    isOpen = {task.id === openTaskId}
                     toggleOpenItem={toggleOpenItem(task.id)}
-
                 >
                 </Task>
                 {/*<div ref={this.taskCont}>*/}

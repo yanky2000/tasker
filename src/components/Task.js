@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import CommentList from './CommentList';
 import PropTypes from 'prop-types';
-import ToggleOpen from '../decorators/toggleOpen';
+// import ToggleOpen from '../decorators/toggleOpen';
 
 
 class Task extends Component {
@@ -9,35 +9,27 @@ class Task extends Component {
     static propTypes = {
         task: PropTypes.object.isRequired,
         //from accordion
-        openTaskId: PropTypes.number,
+        isOpen: PropTypes.bool,
         toggleOpenItem: PropTypes.func
     };
 
 
     render() {
-        const {task, openTaskId, toggleOpenItem, toggleOpen, isOpen} = this.props;
+        const {task, toggleOpenItem, isOpen} = this.props;
         console.log('----', 'Task rendered', task.id);
 
-        const commentsBody = isOpen && <CommentList comments={task.comments}/>
-
-        const taskBody = openTaskId === task.id && (
+        const taskBody = isOpen && (
             <div>
                 <p>{task.description}</p>
-                <button onClick={toggleOpen}>
-                    {this.props.isOpen
-                        ? 'hide comments'
-                        : 'show comments'
-                    }
-                </button>
-                {commentsBody}
-            </div>);
+                <CommentList comments={task.comments} />
+            </div>)
 
         return (
             <div>
                 <h4>{task.title}
                 &nbsp;
                     <button onClick={toggleOpenItem}>
-                        {(openTaskId === task.id) ? 'close task' : 'open task'}
+                        {(isOpen) ? 'close task' : 'open task'}
                     </button>
                 </h4>
                 {taskBody}
@@ -46,4 +38,4 @@ class Task extends Component {
     }
 }
 
-export default ToggleOpen(Task)
+export default Task

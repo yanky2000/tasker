@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import Comment from './Comment'
+import React, {Component} from 'react'
+import Comment from './Comment';
+import toggleOpen from '../decorators/toggleOpen'
 
 class CommentList extends Component {
     static defaultProps = {
@@ -7,16 +8,28 @@ class CommentList extends Component {
     }
 
     render() {
-        const {comments} = this.props
-        const commentBody = comments.length ? comments.map((comment, index) => <Comment key={index} comment={comment}></Comment>) : "no comments yet"
+        const {comments, isOpen, toggleOpen} = this.props
+        const commentsBody = (comments.length > 0)
+                    ? comments.map((comment, index) =>
+                        <Comment key={index} comment={comment}></Comment>)
+                    : 'no comments yet'
 
         return (
-            <ul>
-                {commentBody}
-            </ul>
+
+            <div>
+                <button onClick={toggleOpen}>
+                    {isOpen
+                        ? 'hide comments'
+                        : 'show comments'
+                    }
+                </button>
+                <ul>
+                    {isOpen && commentsBody}
+                </ul>
+            </div>
 
         )
     }
 }
 
-export default CommentList
+export default toggleOpen(CommentList)

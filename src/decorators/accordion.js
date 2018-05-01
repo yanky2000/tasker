@@ -1,16 +1,33 @@
-import React from 'react'
+import React from 'react';
 
-export default (OrigComponent) => class Accordeon extends React.Component {
-    state = {
-        openTaskId : null
-    }
-    
-    toggleOpenItem = openTaskId => ev => this.setState({
-        openTaskId: openTaskId === this.state.openTaskId ? null : openTaskId})
+export default (OrigComponent) => {
+    return class Accordeon extends React.Component {
+        state = {
+            openTaskId: null
+        }
 
-    
+        toggleOpenItem = openItemId => ev => this.setState({
+            openTaskId: openItemId === this.state.openTaskId ? null : openItemId
+        })
 
-    render () {
-        return <OrigComponent {...this.props} {...this.state} toggleOpenItem={this.toggleOpenItem}/>
-    }
+        togglersMap = new Map()
+
+        toggleOpenItemMemoized = (openItemId) => {
+            if (this.togglersMap.get(openItemId)) return this.togglersMap.get(openItemId);
+            const toggler = this.toggleOpenItem(openItemId);
+            this.togglersMap.set(openItemId, toggler);
+            return toggler
+
+        }
+
+
+        render() {
+            return <OrigComponent
+                {...this.props}
+                {...this.state}
+                toggleOpenItem={this.toggleOpenItem}
+
+            />
+        }
+    };
 }

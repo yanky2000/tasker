@@ -1,7 +1,9 @@
 import React from 'react'
 
 function Comment(props) {
-    return(
+
+    return (
+
         <li>{props.comment}</li>
     )
 }
