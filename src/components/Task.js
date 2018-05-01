@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CommentList from './CommentList';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import ToggleOpen from '../decorators/toggleOpen';
 
 
 class Task extends Component {
@@ -9,16 +10,15 @@ class Task extends Component {
         task: PropTypes.object.isRequired,
         //from accordion
         openTaskId: PropTypes.number,
-        toggleOpen: PropTypes.func
+        toggleOpenItem: PropTypes.func
     };
 
+
     render() {
-        const {task, openTaskId, toggleOpen} = this.props;
+        const {task, openTaskId, toggleOpenItem, toggleOpen, isOpen} = this.props;
         console.log('----', 'Task rendered', task.id);
 
-        const commentsBody = openTaskId === task.id
-            ? <CommentList comments={task.comments}/>
-            : null;
+        const commentsBody = isOpen && <CommentList comments={task.comments}/>
 
         const taskBody = openTaskId === task.id && (
             <div>
@@ -34,12 +34,16 @@ class Task extends Component {
 
         return (
             <div>
-                <h4>{task.title}</h4>
-                <button onClick={toggleOpen(task.id)}>{(openTaskId === task.id) ? 'close task' : 'open task'}</button>
+                <h4>{task.title}
+                &nbsp;
+                    <button onClick={toggleOpenItem}>
+                        {(openTaskId === task.id) ? 'close task' : 'open task'}
+                    </button>
+                </h4>
                 {taskBody}
             </div>
         )
     }
 }
 
-export default Task
+export default ToggleOpen(Task)

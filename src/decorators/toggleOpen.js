@@ -9,7 +9,6 @@ export default (OrigComponent) => class DecoratedComponent extends React.Compone
         isOpen: !this.state.isOpen
     })
 
-    
 
     render () {
         return <OrigComponent {...this.props} {...this.state} toggleOpen={this.toggleOpen}/>

@@ -5,12 +5,12 @@ export default (OrigComponent) => class Accordeon extends React.Component {
         openTaskId : null
     }
     
-    toggleOpen = openTaskId => ev => this.setState({
+    toggleOpenItem = openTaskId => ev => this.setState({
         openTaskId: openTaskId === this.state.openTaskId ? null : openTaskId})
 
     
 
     render () {
-        return <OrigComponent {...this.props} {...this.state} toggleOpen={this.toggleOpen}/>
+        return <OrigComponent {...this.props} {...this.state} toggleOpenItem={this.toggleOpenItem}/>
     }
 }

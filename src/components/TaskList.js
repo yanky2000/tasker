@@ -10,25 +10,23 @@ class TasksList extends Component {
         tasks: PropTypes.array.isRequired,
         // from accordion
         openTaskId: PropTypes.number,
-        toggleOpen: PropTypes.func.isRequired
-
-
+        toggleOpenItem: PropTypes.func.isRequired
     };
 
     render() {
-        const {tasks, toggleOpen, openTaskId} = this.props
+        const {tasks, toggleOpenItem, openTaskId} = this.props
         const tasksList = tasks.map(task =>
             <ListGroupItem key={task.title}>
                 <Task
                     task={task}
                     openTaskId={openTaskId}
-                    toggleOpen={toggleOpen}
+                    toggleOpenItem={toggleOpenItem(task.id)}
 
                 >
                 </Task>
-                <div ref={this.taskCont}>
-                    hehehe
-                </div>
+                {/*<div ref={this.taskCont}>*/}
+                    {/*hehehe*/}
+                {/*</div>*/}
 
             </ListGroupItem>
         )
@@ -41,9 +39,9 @@ class TasksList extends Component {
     }
 
     taskCont = task => {
-        this.task = task;
-        console.log(';;;;', task)
-        console.log('task -', window.getComputedStyle(task).width)
+        // this.task = task;
+        // console.log(';;;;', task)
+        // console.log('task -', window.getComputedStyle(task).width)
         // setInterval(() => {task.setState({
         //
         // })}, 500)
