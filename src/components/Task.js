@@ -1,35 +1,45 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import CommentList from './CommentList';
 import PropTypes from 'prop-types'
-import accordeon from '../decorators/accordeon'
+
 
 class Task extends Component {
+
     static propTypes = {
-        task: PropTypes.object.isRequired
-    }
+        task: PropTypes.object.isRequired,
+        //from accordion
+        openTaskId: PropTypes.number,
+        toggleOpen: PropTypes.func
+    };
 
     render() {
-        console.log('----','render')
-        const {task, toggleOpen, openTaskId} = this.props
-        const commentsBody = openTaskId==task.id ? <CommentList comments={task.comments}/> : null
-        const taskBody = openTaskId==task.id && (
+        const {task, openTaskId, toggleOpen} = this.props;
+        console.log('----', 'Task rendered', task.id);
+
+        const commentsBody = openTaskId === task.id
+            ? <CommentList comments={task.comments}/>
+            : null;
+
+        const taskBody = openTaskId === task.id && (
             <div>
                 <p>{task.description}</p>
-                <button onClick={toggleOpen}>{this.props.isOpen ? 'hide comments' : 'show comments'}</button>
+                <button onClick={toggleOpen}>
+                    {this.props.isOpen
+                        ? 'hide comments'
+                        : 'show comments'
+                    }
+                </button>
                 {commentsBody}
-            </div>)
+            </div>);
 
         return (
             <div>
-                <h4>{task.title}
-                    <button onClick={toggleOpen(task.id)}>open task</button>
-                </h4>
+                <h4>{task.title}</h4>
+                <button onClick={toggleOpen(task.id)}>{(openTaskId === task.id) ? 'close task' : 'open task'}</button>
                 {taskBody}
             </div>
         )
     }
-
-    getBody() {}
 }
 
-export default accordeon(Task);
+export default Task
