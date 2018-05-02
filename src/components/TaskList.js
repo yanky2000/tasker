@@ -14,13 +14,13 @@ class TasksList extends Component {
     };
 
     render() {
-        const {tasks, toggleOpenItem, openTaskId} = this.props
+        const {tasks, toggleOpenItem, openTaskId, toggleOpenItemMemoized} = this.props
         const tasksList = tasks.map(task =>
             <ListGroupItem key={task.title}>
                 <Task
                     task={task}
                     isOpen = {task.id === openTaskId}
-                    toggleOpenItem={toggleOpenItem}
+                    toggleOpenItem={toggleOpenItemMemoized(task.id)}
                 >
                 </Task>
                 {/*<div ref={this.taskCont}>*/}

@@ -6,7 +6,7 @@ export default (OrigComponent) => {
             openTaskId: null
         }
 
-        toggleOpenItem = openItemId => this.setState({
+        toggleOpenItem = openItemId => en => this.setState({
             openTaskId: openItemId === this.state.openTaskId ? null : openItemId
         })
 
@@ -26,6 +26,7 @@ export default (OrigComponent) => {
                 {...this.props}
                 {...this.state}
                 toggleOpenItem={this.toggleOpenItem}
+                toggleOpenItemMemoized={this.toggleOpenItemMemoized}
 
             />
         }
