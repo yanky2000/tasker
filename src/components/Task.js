@@ -28,7 +28,7 @@ class Task extends PureComponent {
             <div>
                 <h4>{task.title}
                 &nbsp;
-                    <button onClick={() => toggleOpenItem(task.id)}>
+                    <button onClick={toggleOpenItem}>
                         {(isOpen) ? 'close task' : 'open task'}
                     </button>
                 </h4>
