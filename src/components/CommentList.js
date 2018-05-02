@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Comment from './Comment';
+import CommentForm from './CommentForm/';
 import toggleOpen from '../decorators/toggleOpen'
 
 class CommentList extends Component {
@@ -26,6 +27,7 @@ class CommentList extends Component {
                 <ul>
                     {isOpen && commentsBody}
                 </ul>
+                <CommentForm />
             </div>
 
         )
