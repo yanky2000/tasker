@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import CommentList from './CommentList';
 import PropTypes from 'prop-types';
 // import ToggleOpen from '../decorators/toggleOpen';
 
 
-class Task extends Component {
+class Task extends PureComponent {
 
     static propTypes = {
         task: PropTypes.object.isRequired,
@@ -28,7 +28,7 @@ class Task extends Component {
             <div>
                 <h4>{task.title}
                 &nbsp;
-                    <button onClick={toggleOpenItem}>
+                    <button onClick={() => toggleOpenItem(task.id)}>
                         {(isOpen) ? 'close task' : 'open task'}
                     </button>
                 </h4>

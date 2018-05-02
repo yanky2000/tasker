@@ -6,7 +6,7 @@ export default (OrigComponent) => {
             openTaskId: null
         }
 
-        toggleOpenItem = openItemId => ev => this.setState({
+        toggleOpenItem = openItemId => this.setState({
             openTaskId: openItemId === this.state.openTaskId ? null : openItemId
         })
 

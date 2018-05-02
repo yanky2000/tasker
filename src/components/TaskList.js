@@ -20,7 +20,7 @@ class TasksList extends Component {
                 <Task
                     task={task}
                     isOpen = {task.id === openTaskId}
-                    toggleOpenItem={toggleOpenItem(task.id)}
+                    toggleOpenItem={toggleOpenItem}
                 >
                 </Task>
                 {/*<div ref={this.taskCont}>*/}
