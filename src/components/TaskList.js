@@ -4,6 +4,8 @@ import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import accordion from '../decorators/accordion';
 import PropTypes from 'prop-types';
 
+import {handleDelete} from '../AC'
+
 class TasksList extends Component {
 
     static propTypes = {
@@ -35,17 +37,7 @@ class TasksList extends Component {
                 {tasksList}
             </ListGroup>
         )
-    }
-
-    taskCont = task => {
-        // this.task = task;
-        // console.log(';;;;', task)
-        // console.log('task -', window.getComputedStyle(task).width)
-        // setInterval(() => {task.setState({
-        //
-        // })}, 500)
-    }
-
+    };
 
 
 }

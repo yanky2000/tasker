@@ -1,6 +1,9 @@
-import React, {PureComponent} from 'react'
-import CommentList from './CommentList';
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import CommentList from './CommentList';
+import {deleteTask} from "../AC";
+
 // import ToggleOpen from '../decorators/toggleOpen';
 
 
@@ -31,11 +34,18 @@ class Task extends PureComponent {
                     <button onClick={toggleOpenItem}>
                         {(isOpen) ? 'close task' : 'open task'}
                     </button>
+                    <button onClick={this.handleDelete}>Delete</button>
                 </h4>
                 {taskBody}
             </div>
         )
     }
+
+    handleDelete= () => {
+        const {task} = this.props
+        console.log('------------', task.id)
+        this.props.deleteTask(task.id)
+    }
 }
 
-export default Task
+export default connect(null, {deleteTask})(Task)

@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
+    "loadash": "^1.0.0",
     "react-bootstrap": "^0.32.1"
   }
 }

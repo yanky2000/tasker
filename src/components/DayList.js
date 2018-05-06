@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Day from './Day';
 import PropTypes from 'prop-types';
 
 class DayList extends Component {
     static propTypes = {
         dayRecords: PropTypes.array.isRequired
-    }
+    };
 
     render() {
         const {dayRecords} = this.props;
@@ -22,5 +23,8 @@ class DayList extends Component {
         );
     }
 }
+const mapStateToProps  = (state) => ({
+    dayRecords: state.dayRecords
+});
 
-export default DayList;
+export default connect(mapStateToProps) (DayList);

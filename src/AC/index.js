@@ -1,5 +1,17 @@
-import {INCREMENT} from "../constants";
+import {INCREMENT, DELETE_TASK} from "../constants";
+import {LOAD_DAYRECORDS} from '../constants'
 
-export default function increment() {
+export function increment() {
     return {type: INCREMENT}
 }
+
+export function deleteTask(id) {
+    return {
+        type: DELETE_TASK,
+        payload: {id}
+    }
+}
+
+
+
+
