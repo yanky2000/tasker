@@ -1,1 +1,2 @@
-export const INCREMENT = 'INCREMENT'
+export const INCREMENT = 'INCREMENT';
+export const LOAD_DAYRECORDS = 'LOAD_DAYRECORDS'

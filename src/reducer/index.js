@@ -1,8 +1,11 @@
-import {combineReducers} from 'redux'
-import counterReducer from './counter'
+import {combineReducers} from 'redux';
+import count from './counter'
+import dayRecords from './dayRecords'
+
 
 const reducer = combineReducers({
-    count: counterReducer
+    count,
+    dayRecords
 })
 
 export default reducer

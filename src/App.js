@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DayList from './components/DayList';
 import Counter from './components/Counter';
-import dayRecords from './fixtures'
+
 
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
         <div>
         <Counter />
-        <DayList dayRecords={dayRecords}/>
+        <DayList />
         </div>
     );
   }
