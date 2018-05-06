@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Daylist from './components/DayList';
-import Counter from './components/Counter'
+import DayList from './components/DayList';
+import Counter from './components/Counter';
+import dayRecords from './fixtures'
+
 
 class App extends Component {
   render() {
     return (
         <div>
         <Counter />
-        <Daylist />
+        <DayList dayRecords={dayRecords}/>
         </div>
     );
   }

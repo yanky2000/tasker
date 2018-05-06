@@ -1,25 +1,28 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import increment from '../AC'
 
 export class Counter extends Component {
     render() {
         return (
             <div>
-                count: {this.props.count}
-                <button onClick={this.handleIncrement()}>increment</button>
+                count: {this.props.counts}
+                <button onClick={this.clickIncrement}>increment</button>
             </div>
         )
     }
 
-    handleIncrement = () => {
-        console.log('----- INCREMENT',)
+    clickIncrement = () => {
+        console.log('----- INCREMENT',);
+        this.props.handleIncrement()
     };
-
 
 }
 
 const MapStateToProps = (state) => ({
-    count: state.count
+    counts: state.count
 })
 
-export default connect(MapStateToProps)(Counter)
+export default connect(MapStateToProps, {
+    handleIncrement: increment
+})(Counter)

@@ -1,17 +1,26 @@
-import React, { Component } from 'react';
-import Day from './Day'
-import dayRecords from '../fixtures';
+import React, {Component} from 'react';
+import Day from './Day';
+import PropTypes from 'prop-types';
 
 class DayList extends Component {
-  render() {
-    const body = dayRecords.map((record, index) => <Day dayRecord={record} key={record.date} defaultOpen={index === 0}/>);//make first comments visible
+    static propTypes = {
+        dayRecords: PropTypes.array.isRequired
+    }
 
-    return (
-      <div>
-        {body}
-      </div>
-    );
-  }
+    render() {
+        const {dayRecords} = this.props;
+        const body = dayRecords.map((record, index) =>
+            <Day dayRecord={record}
+                 key={record.date}
+                 defaultOpen={index === 0} //make first comments visible
+            />);
+
+        return (
+            <div>
+                {body}
+            </div>
+        );
+    }
 }
 
 export default DayList;
