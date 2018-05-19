@@ -1,8 +1,15 @@
-import {INCREMENT} from "../constants";
-import {LOAD_DAYRECORDS} from '../constants'
+import {INCREMENT, DELETE_RECORD, LOAD_DAYRECORDS} from "../constants";
 
-export default function increment() {
+
+export function increment() {
     return {type: INCREMENT}
 }
 
+export function handleDelete(id) {
+    console.log('dispatching delete---->', id)
+    return {
+        type: DELETE_RECORD,
+        payload: {id}
+    }
+}
 
