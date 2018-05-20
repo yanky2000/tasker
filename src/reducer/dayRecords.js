@@ -1,7 +1,7 @@
 import {DELETE_RECORD} from '../constants'
 import defaultDayRecords from '../fixtures'
 
-export default (dayRecords = defaultDayRecords, action) => {
+export function dayRecords (dayRecords = defaultDayRecords, action) {
     const {type, payload} = action;
 
     switch (type) {
