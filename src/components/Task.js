@@ -17,7 +17,7 @@ class Task extends PureComponent {
 
 
     render() {
-        const {task, toggleOpenItem, isOpen} = this.props;
+        const {task, toggleOpenItem, isOpen } = this.props;
         console.log('----', 'Task rendered', task.id);
 
         const taskBody = isOpen && (

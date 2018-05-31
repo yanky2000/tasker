@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "react-bootstrap": "^0.32.1"
+    "react-bootstrap": "^0.32.1",
+    "react-streams": "^13.1.0",
+    "rxjs": "^6.2.0"
   }
 }

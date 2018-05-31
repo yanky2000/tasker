@@ -21,6 +21,7 @@ class TasksList extends Component {
                     task={task}
                     isOpen = {task.id === openTaskId}
                     toggleOpenItem={toggleOpenItemMemoized(task.id)}
+
                 >
                 </Task>
                 {/*<div ref={this.taskCont}>*/}
@@ -36,6 +37,8 @@ class TasksList extends Component {
             </ListGroup>
         )
     }
+
+
 
     taskCont = task => {
         // this.task = task;
