@@ -9,6 +9,8 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0",
     "typescript": "^2.8.3"
   },
   "scripts": {
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
+    "component-inspector": "^1.6.0",
     "react-bootstrap": "^0.32.1"
   }
 }

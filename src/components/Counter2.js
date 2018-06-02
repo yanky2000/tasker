@@ -1,8 +1,7 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {increment} from '../AC'
-import store from "../store";
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { increment } from '../AC';
+import store from '../store';
 
 export class Counter2 extends Component {
     state = {
@@ -10,7 +9,7 @@ export class Counter2 extends Component {
     }
 
     componentDidMount() {
-        this.unsubscribe = store.subscribe(this.handleIncrement)
+        this.unsubscribe = store.subscribe(this.handleIncrement);
     }
 
     componentWillUnmount() {
@@ -23,21 +22,19 @@ export class Counter2 extends Component {
                 <h2>COUNT: {this.state.count}</h2>
                 <button onClick={this.clickIncrement}>increment</button>
             </div>
-        )
+        );
     }
 
     clickIncrement = () => {
         console.log('----- INCREMENT');
         const incr = increment();
-        store.dispatch({type:'INCREMENT'})
-
+        store.dispatch({ type: 'INCREMENT' });
     };
 
     handleIncrement = () => {
         this.setState({
-            count: store.getState().count
-        })
+            count: store.getState().count,
+        });
     }
-
 }
 
