@@ -8,8 +8,9 @@ export default (records = dayRecords, action) => {
     switch (type) {
         case DELETE_TASK :
             return records.tasks.filter(task => task.id === payload.id)
-        //     return records
-        default : return records
+        default :
+            return records
+
     }
 
 }

@@ -11,6 +11,7 @@ class Task extends PureComponent {
 
     static propTypes = {
         task: PropTypes.object.isRequired,
+        deleteTask: PropTypes.func,
         //from accordion
         isOpen: PropTypes.bool,
         toggleOpenItem: PropTypes.func
@@ -24,28 +25,32 @@ class Task extends PureComponent {
         const taskBody = isOpen && (
             <div>
                 <p>{task.description}</p>
-                <CommentList comments={task.comments} />
+                <CommentList comments={task.comments}/>
             </div>)
 
         return (
             <div>
                 <h4>{task.title}
-                &nbsp;
+                    &nbsp;
                     <button onClick={toggleOpenItem}>
                         {(isOpen) ? 'close task' : 'open task'}
                     </button>
-                    <button onClick={this.handleDelete}>Delete</button>
+
+                    <button onClick={this.handleDelete}>
+                        Delete Task
+                    </button>
+
                 </h4>
                 {taskBody}
             </div>
         )
     }
 
-    handleDelete= () => {
-        const {task} = this.props
-        console.log('------------', task.id)
-        this.props.deleteTask(task.id)
+    handleDelete = () => {
+        console.log('----', "deleting task!", this.props.task.id)
+        this.props.deleteTask(this.props.task.id)
     }
 }
 
 export default connect(null, {deleteTask})(Task)
+

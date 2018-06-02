@@ -1,0 +1,25 @@
+#content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-row: repeat(3, 400px);
+    grid-gap: 10px;
+    /*grid-template-rows: minmax();*/
+}
+
+div {
+    background: antiquewhite;
+}
+
+#content div:nth-child(even) {
+    background: brown;
+}
+
+div {
+    /*background: aqua;*/
+    /*height: 200px;*/
+
+}
+
+.one {
+
+}

@@ -7,6 +7,6 @@ const reducer = combineReducers({
     count,
     dayRecords,
     tasks
-})
+});
 
 export default reducer

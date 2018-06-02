@@ -6,12 +6,9 @@ export function increment() {
 }
 
 export function deleteTask(id) {
+    console.log('dispatching delete---->', id)
     return {
         type: DELETE_TASK,
         payload: {id}
     }
 }
-
-
-
-
