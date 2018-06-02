@@ -33,7 +33,7 @@ class Day extends Component {
         return (
             <div>
                 <h1> ----- {dayRecord.date} -----</h1>
-                <TaskList tasks={dayRecord.tasks}/>
+                <TaskList dayRecord={dayRecord} />
                 <Button onClick={toggleOpen}> 
                     {this.props.isOpen ? 'close' : 'open'}
                 </Button>

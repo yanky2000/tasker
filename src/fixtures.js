@@ -40,7 +40,7 @@ export default [
                 }, 
                 {
                     id: 5,
-                    title: 'Add projects for tasks',
+                    title: 'Add projects for tasksReducer',
                     description: 'Add tags, make view for projects',
                     completed: false,
                     tags: ["react", "job"]
