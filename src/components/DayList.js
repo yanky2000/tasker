@@ -12,7 +12,7 @@ class DayList extends Component {
         const {dayRecords} = this.props;
         const body = dayRecords.map((record, index) =>
             <Day dayRecord={record}
-                 key={record.date}
+                 key={record.date+new Date()}
                  defaultOpen={index === 0} //make first comments visible
             />);
 

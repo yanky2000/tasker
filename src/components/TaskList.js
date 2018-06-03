@@ -16,7 +16,7 @@ class TasksList extends Component {
     };
 
     render() {
-        const {dayRecord: {date, tasks, openTaskId}, toggleOpenItemMemoized} = this.props
+        const {dayRecord: {date, tasks}, openTaskId, toggleOpenItemMemoized} = this.props
         const tasksList = tasks.map(task =>
             <ListGroupItem key={task.title}>
                 <Task

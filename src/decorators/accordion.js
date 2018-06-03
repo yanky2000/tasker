@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default (OrigComponent) => {
-    return class Accordeon extends React.Component {
+    return class Accordion extends React.Component {
         state = {
             openTaskId: null
         }
 
-        toggleOpenItem = openItemId => en => this.setState({
+        toggleOpenItem = openItemId => ev => this.setState({
             openTaskId: openItemId === this.state.openTaskId ? null : openItemId
         })
 
