@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import TaskList from './TaskList';
 import { Button, Well } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 import toggleOpen from '../decorators/toggleOpen'
+import {DELETE_DAY} from "../constants";
+import {deleteDay} from "../AC";
+import dayRecords from "../reducer/dayRecords";
+
 
 class Day extends Component {
     // constructor(props) {
@@ -32,7 +37,8 @@ class Day extends Component {
 
         return (
             <div>
-                <h1> ----- {dayRecord.date} -----</h1>
+                <h1> ----- {dayRecord.date} -----
+                <button onClick={this.handleDelDay}>del</button></h1>
                 <TaskList dayRecord={dayRecord} />
                 <Button onClick={toggleOpen}> 
                     {this.props.isOpen ? 'close' : 'open'}
@@ -40,8 +46,15 @@ class Day extends Component {
                 {commentsBody}
             </div>
         )
-    }  
+    }
+
+    handleDelDay = () => {
+        const {dayRecord:{date}} = this.props
+        this.props.deleteDay(date)
+    }
 
 }
 
-export default toggleOpen(Day);
+
+
+export default connect(null, {deleteDay}) (toggleOpen(Day))

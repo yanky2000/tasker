@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
@@ -7,7 +7,7 @@ import {deleteTask} from "../AC";
 // import ToggleOpen from '../decorators/toggleOpen';
 
 
-class Task extends PureComponent {
+class Task extends Component {
 
     static propTypes = {
         task: PropTypes.object.isRequired,
@@ -47,8 +47,8 @@ class Task extends PureComponent {
     }
 
     handleDelete = () => {
-        console.log('----', "deleting task!", this.props.task.id)
-        this.props.deleteTask(this.props.task.id)
+        const {date, task: {id}} = this.props
+        this.props.deleteTask({date, taskId:id})
     }
 }
 
